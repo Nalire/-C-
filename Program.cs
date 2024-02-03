@@ -1,15 +1,25 @@
-﻿Console.Write("Введите значение M:");
+﻿Console.Write("Введите число m: ");
 int m = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите значение N:");
+Console.Write("Введите число n: ");
 int n = Convert.ToInt32(Console.ReadLine());
-void che(int m, int n)
+AkkermanFunction(m,n);
+void AkkermanFunction(int m, int n)
 {
-if (m > n)
-return;
-if (m % 2 == 0)
+    Console.Write(Akkerman(m, n)); 
+}
+
+int Akkerman(int m, int n)
 {
-Console.Write($"{m}, ");
+    if (m == 0)
+    {
+        return n + 1;
+    }
+    else if (n == 0 && m > 0)
+    {
+        return Akkerman(m - 1, 1);
+    }
+    else
+    {
+        return (Akkerman(m - 1, Akkerman(m, n - 1)));
+    }
 }
-che(m+1,n);
-}
-che(m,n);
